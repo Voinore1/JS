@@ -9,12 +9,12 @@
             width: 90%;
             margin: 0 auto;
         }
-        .container {
+        .container, .light{
             display: flex;
             flex-wrap: wrap;
             gap: 5px;   
         }
-        .add{
+        .add, .change{
             display: block;
             width: 90%;
             margin: 20px auto;
@@ -24,12 +24,30 @@
             height: 20px;
             border: 0;
         }
+        .light{
+            justify-content: center;
+        }
+
+        .element{
+            height: 100px;
+            width: 100px;
+            background-color: gray;
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
     <div class="container"></div>
 
     <button class="add">Add block</button>
+
+    <div class="light">
+        <div class="element"></div>
+        <div class="element"></div>
+        <div class="element"></div>
+    </div>
+
+    <button class="change">Change color</button>
 
     <script src="/DOM/main.js"></script>
 </body>

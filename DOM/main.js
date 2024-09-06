@@ -7,6 +7,15 @@ function getRandomColor(){
     return color;
 }
 
+function getColor(counter){
+    switch(counter % 3)
+    {
+        case 0: return 'Green';
+        case 1: return 'Yellow';
+        case 2: return 'Red';
+    }
+}
+
 
 const list = document.querySelector('div.container');
 const btn = document.querySelector('button.add');
@@ -24,51 +33,15 @@ btn.addEventListener('click', function () {
 });
 
 
-// ----------------- add elements to DOM 
-// list.append(newItem);
-list.appendChild(newItem);
 
-list.prepend("Prepended item"); // insert first list item
-list.append("Appended item");   // insert last list item
+let counter = 1;
+let listB = document.querySelectorAll('div.light div.element');
+listB[0].style.backgroundColor = 'green';
 
-list.before("Before item");       // insert outside the list before
-list.after("After item");         // insert outside the list after
+const btnB = document.querySelector('button.change');
 
-// ----------------- working with CSS classes
-// 1 - using style property
-// newItem.style.textTransform = "uppercase";
-// newItem.style.fontSize = "24px";
-
-// 2 - using CSS classes
-newItem.classList.remove('important');
-newItem.classList.add('important');
-
-// ------- set event handler
-list.lastElementChild.onclick = function (e) {
-    // executes when the item was clicked
-    //debugger;
-    //alert("afrae");
-
-    //newItem.classList.toggle('important');
-    //e.target.classList.toggle('important'); 
-    this.classList.toggle('important');         // e.target === this
-}
-
-// ----------------- working with attributes
-newItem.setAttribute("name", 'test');
-newItem.getAttribute('name'); // test
-newItem.removeAttribute('name');
-
-// ----------------- get items by hierarchy
-const secondItem = list.children[1];
-
-console.log("Next sibling:", secondItem.nextSibling);         // include elements and text nodes
-console.log("Previous sibling:", secondItem.previousSibling); // include elements and text nodes
-
-console.log("Next sibling element:", secondItem.nextElementSibling); // include elements only
-console.log("Previous sibling element:", secondItem.previousElementSibling); // include elements only
-
-console.log('Parent item:', secondItem.parentNode);
-
-// ------ remove item from DOM
-newItem.remove();
+btnB.addEventListener('click', function () {
+    listB[counter % listB.length].style.backgroundColor = getColor(counter);
+    listB[(counter - 1) % listB.length].style.backgroundColor = 'gray';
+    counter++;
+});
