@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 90%;
+            margin: 0 auto;
+        }
+        .container, .light{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;   
+        }
+        .add, .change{
+            display: block;
+            width: 90%;
+            margin: 20px auto;
+        }
+        .delete{
+            width: 40px;
+            height: 20px;
+            border: 0;
+        }
+        .light{
+            justify-content: center;
+        }
+
+        .element{
+            height: 100px;
+            width: 100px;
+            background-color: gray;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container"></div>
+
+    <button class="add">Add block</button>
+
+    <div class="light">
+        <div class="element"></div>
+        <div class="element"></div>
+        <div class="element"></div>
+    </div>
+
+    <button class="change">Change color</button>
+
+    <script src="/BOM/main.js"></script>
+</body>
+</html>
